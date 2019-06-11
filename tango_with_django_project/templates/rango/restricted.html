@@ -6,7 +6,11 @@
 {% endblock %}
 
 {% block body_block %}
-    <h1>Restricted Page</h1>
+    <div class="jumbotron p-4">
+        <div class="container">
+            <h1 class="jumotron-heading">Restricted Page</h1>
+        </div>
+    </div>
     <div>
         You are logged in, so you can see this page! If you weren't logged in, you wouldn't be able to!
         <img src="{% static 'images/rango.jpg' %}" alt="Picture of Rango" />
