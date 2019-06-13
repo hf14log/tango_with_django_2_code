@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from rango.models import Category
 from rango.models import Page
@@ -179,3 +179,19 @@ def search(request):
             result_list = run_query(query)
     
     return render(request, 'rango/search.html', {'result_list': result_list, 'query': query})
+
+def goto(request):
+    if request.method == 'GET':
+        page_id = request.GET.get('page_id')
+        
+        try:
+            selected_page = Page.objects.get(id=page_id)
+        except Page.DoesNotExist:
+            return redirect(reverse('rango:index'))
+            
+        selected_page.views = selected_page.views + 1
+        selected_page.save()
+        
+        return redirect(selected_page.url)
+        
+    return redirect(reverse('rango:index'))
