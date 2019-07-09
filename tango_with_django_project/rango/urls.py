@@ -16,4 +16,5 @@ urlpatterns = [
     # path('search/', views.search, name='search'),
     path('goto/', views.GotoView.as_view(), name='goto'),
     path('register_profile/', views.RegisterProfileView.as_view(), name='register_profile'),
+    path('profile/<username>/', views.ProfileView.as_view(), name='profile')
 ]
