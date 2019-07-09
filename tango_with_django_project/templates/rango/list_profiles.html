@@ -1,0 +1,36 @@
+{% extends 'rango/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+    User Profiles
+{% endblock %}
+
+{% block body_block %}
+    <div class="jumbotron p-4">
+        <div class="container">
+            <h1 class="jumotron-heading">User Profiles</h1>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            {% if userprofile_list %}
+            <div class="panel-body">
+                <div class="list-group">
+                    {% for listuser in userprofile_list %}
+                    <div class="list-group-item">
+                        <h4 class="list-group-item-heading">
+                            <a href="{% url 'rango:profile' listuser.user.username %}">
+                                {{ listuser.user.username }}
+                            </a>
+                        </h4>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% else %}
+            <p>There are no users present on Rango.</p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
