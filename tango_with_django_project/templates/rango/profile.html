@@ -14,10 +14,17 @@
     
     <div class="container">
         <div class="row">
+            {% if userprofile.picture %}
             <img src="{{ MEDIA_URL }}{{ userprofile.picture }}"
                  width="300"
                  height="300"
                  alt="{{ selecteduser.username }}'s profile image" />
+            {% else %}
+            <img src="https://lorempixel.com/300/300/people/"
+                 width="300"
+                 height="300"
+                 alt="Placeholder image for {{ selecteduser.username }}" />
+            {% endif %}
             <br />
             <div>
                 {% if selecteduser == user %}
