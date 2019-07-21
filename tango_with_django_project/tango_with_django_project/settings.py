@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
@@ -23,12 +25,15 @@ MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '7((8^hl+bpuaw5p)70ws41uchc8*$rbq2&6j7d52nnbdl%n6w2'
+# This is taken from the root of the repository to demonstrate the functionality
+# In a real-world production project, this key should be totally secret and kept away from committed repositories.
+with open('secret.key') as f:
+    SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['rangodemo2019.pythonanywhere.com']
+ALLOWED_HOSTS = ['rangodemo2019.pythonanywhere.com', '127.0.0.1']
 
 
 # Application definition
