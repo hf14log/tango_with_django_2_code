@@ -28,7 +28,7 @@ SECRET_KEY = '7((8^hl+bpuaw5p)70ws41uchc8*$rbq2&6j7d52nnbdl%n6w2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['http://rangodemo2019.pythonanywhere.com']
+ALLOWED_HOSTS = ['rangodemo2019.pythonanywhere.com']
 
 
 # Application definition
