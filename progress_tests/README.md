@@ -19,6 +19,6 @@ If you see `OK` at the end of the output, everything passed. Congratulations! If
 ## Important Notes
 **You should also be aware that it is important that you need to test your codebase against the correct test module for the stage you are at.** Earlier tests will begin to fail as you develop the Rango app. For example, if you complete up to the end of Chapter 10 but run the tests for Chapter 3 over your codebase, *tests will fail.* This is because as you progress through the book, you will chop and change code, meaning that tests that would have passed at the end of Chapter 3 now won't pass!
 
-You should also make sure that you delete the test module you copied in when you are finished running those tests. Make sure your repository don't fill up with `test_chapterX.py` modules!
+You should also make sure that you delete the test module you copied in when you are finished running those tests. Make sure your repository does not fill up with `test_chapterX.py` modules!
 
 Last updated: July 26, 2019 (David Maxwell)
