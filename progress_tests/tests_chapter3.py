@@ -106,26 +106,26 @@ class Chapter3IndexPageTests(TestCase):
                     index_mapping_exists = True
         
         self.assertTrue(index_mapping_exists, f"{FAILURE_HEADER}The index URL mapping could not be found. Check your PROJECT'S urls.py module.{FAILURE_FOOTER}")
-        self.assertEquals(reverse('index'), '/rango/', f"{FAILURE_HEADER}The index URL lookup failed. Check Rango's urls.py module. You're missing something in there.{FAILURE_FOOTER}")
+        self.assertEquals(reverse('rango:index'), '/rango/', f"{FAILURE_HEADER}The index URL lookup failed. Check Rango's urls.py module. You're missing something in there.{FAILURE_FOOTER}")
     
     def test_response(self):
         """
         Does the response from the server contain the required string?
         """
-        response = self.client.get(reverse('index'))
+        response = self.client.get(reverse('rango:index'))
         
         self.assertEqual(response.status_code, 200, f"{FAILURE_HEADER}Requesting the index page failed. Check your URLs and view.{FAILURE_FOOTER}")
-        self.assertContains(response, "Rango says hey there partner!", f"{FAILURE_HEADER}The index view does not return the expected response. Be careful you haven't missed any punctuation, and that your cAsEs are correct.{FAILURE_FOOTER}")
+        self.assertContains(response, "Rango says hey there partner!", msg_prefix=f"{FAILURE_HEADER}The index view does not return the expected response. Be careful you haven't missed any punctuation, and that your cAsEs are correct.{FAILURE_FOOTER}")
     
     def test_for_about_hyperlink(self):
         """
         Does the response contain the about hyperlink required in the exercise?
         Checks for both single and double quotes in the attribute. Both are acceptable.
         """
-        response = self.client.get(reverse('index'))
+        response = self.client.get(reverse('rango:index'))
         
-        single_quotes_check = '<a href=\'/rango/about/\'>About</a>' in response.content.decode()
-        double_quotes_check = '<a href="/rango/about/">About</a>' in response.content.decode()
+        single_quotes_check = '<a href=\'/rango/about/\'>About</a>' in response.content.decode() or '<a href=\'/rango/about\'>About</a>' in response.content.decode() 
+        double_quotes_check = '<a href="/rango/about/">About</a>' in response.content.decode() or '<a href="/rango/about">About</a>' in response.content.decode()
         
         self.assertTrue(single_quotes_check or double_quotes_check, f"{FAILURE_HEADER}We couldn't find the hyperlink to the /rango/about/ URL in your index page. Check that it appears EXACTLY as in the book.{FAILURE_FOOTER}")
 
@@ -152,23 +152,23 @@ class Chapter3AboutPageTests(TestCase):
         """
         Checks whether the about view has the correct URL mapping.
         """
-        self.assertEquals(reverse('about'), '/rango/about/', f"{FAILURE_HEADER}Your about URL mapping is either missing or mistyped.{FAILURE_FOOTER}")
+        self.assertEquals(reverse('rango:about'), '/rango/about/', f"{FAILURE_HEADER}Your about URL mapping is either missing or mistyped.{FAILURE_FOOTER}")
     
     def test_response(self):
         """
         Checks whether the view returns the required string to the client.
         """
-        response = self.client.get(reverse('about'))
+        response = self.client.get(reverse('rango:about'))
         
         self.assertEqual(response.status_code, 200, f"{FAILURE_HEADER}When requesting the about view, the server did not respond correctly. Is everything correct in your URL mappings and the view?{FAILURE_FOOTER}")
-        self.assertContains(response, "Rango says here is the about page.", f"{FAILURE_HEADER}The about view did not respond with the expected message. Check that the message matches EXACTLY with what is requested of you in the book.{FAILURE_FOOTER}")
+        self.assertContains(response, "Rango says here is the about page.", msg_prefix=f"{FAILURE_HEADER}The about view did not respond with the expected message. Check that the message matches EXACTLY with what is requested of you in the book.{FAILURE_FOOTER}")
     
     def test_for_index_hyperlink(self):
         """
         Does the response contain the index hyperlink required in the exercise?
         Checks for both single and double quotes in the attribute. Both are acceptable.
         """
-        response = self.client.get(reverse('about'))
+        response = self.client.get(reverse('rango:about'))
         
         single_quotes_check = '<a href=\'/rango/\'>Index</a>' in response.content.decode()
         double_quotes_check = '<a href="/rango/">Index</a>' in response.content.decode()

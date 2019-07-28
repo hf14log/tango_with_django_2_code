@@ -2,7 +2,7 @@
 # Tango with Django 2 Progress Tests
 # By Leif Azzopardi and David Maxwell
 # With assistance from Enzo Roiz (https://github.com/enzoroiz)
-# 
+# reverse('rango:about')
 # Chapter 4 -- Templates and Media Files
 # 
 
@@ -90,7 +90,7 @@ class Chapter4IndexPageTests(TestCase):
     Image tests are in the Chapter4StaticMediaTests suite.
     """
     def setUp(self):
-        self.response = self.client.get(reverse('index'))
+        self.response = self.client.get(reverse('rango:index'))
     
     def test_index_uses_template(self):
         """
@@ -210,7 +210,7 @@ class Chapter4ExerciseTests(TestCase):
     def setUp(self):
         self.project_base_dir = os.getcwd()
         self.template_dir = os.path.join(self.project_base_dir, 'templates', 'rango')
-        self.about_response = self.client.get(reverse('about'))
+        self.about_response = self.client.get(reverse('rango:about'))
     
     def test_about_template_exists(self):
         """
