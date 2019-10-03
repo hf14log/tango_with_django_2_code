@@ -4,6 +4,7 @@
 # With assistance from Enzo Roiz (https://github.com/enzoroiz)
 # 
 # Chapter 4 -- Templates and Media Files
+# Last updated October 3rd, 2019
 # 
 
 #

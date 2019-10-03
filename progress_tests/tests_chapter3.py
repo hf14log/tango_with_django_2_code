@@ -4,6 +4,7 @@
 # With assistance from Enzo Roiz (https://github.com/enzoroiz)
 # 
 # Chapter 3 -- Django Basics
+# Last updated October 3rd, 2019
 # 
 
 #

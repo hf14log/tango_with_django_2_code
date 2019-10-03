@@ -21,4 +21,4 @@ If you see `OK` at the end of the output, everything passed. Congratulations! If
 
 You should also make sure that you delete the test module you copied in when you are finished running those tests. Make sure your repository does not fill up with `test_chapterX.py` modules!
 
-Last updated: July 26, 2019 (David Maxwell)
+Last updated: October 3, 2019 (David Maxwell)
