@@ -5,6 +5,7 @@
 # 
 # Chapter 5 -- Models and Databases
 # Last updated: October 3rd, 2019
+# Revising Author: David Maxwell
 # 
 
 #

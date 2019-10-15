@@ -5,6 +5,7 @@
 # 
 # Chapter 4 -- Templates and Media Files
 # Last updated October 3rd, 2019
+# Revising Author: David Maxwell
 # 
 
 #

@@ -5,6 +5,7 @@
 # 
 # Chapter 3 -- Django Basics
 # Last updated October 3rd, 2019
+# Revising Author: David Maxwell
 # 
 
 #

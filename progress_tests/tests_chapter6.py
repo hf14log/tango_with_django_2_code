@@ -5,6 +5,7 @@
 # 
 # Chapter 6 -- Models, Templates and Views
 # Last updated: October 15th, 2019
+# Revising Author: David Maxwell
 # 
 
 #
